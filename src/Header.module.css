@@ -1,0 +1,20 @@
+.navigate{
+    display: flex;
+    justify-content: center;
+}
+.navigate ul{
+
+}
+.navigate li{
+    display: inline;
+    margin-right: 40px;
+    text-decoration: none;
+
+}
+.navigate li a{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+
+}
