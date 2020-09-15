@@ -6,12 +6,12 @@ const Navbar =()=> {
     return(
         <div className={s.sidebar} >
             <ul>
-                <li><a className={s.item} href="#">Profile</a></li>
-                <li><a className={s.item} href="#">Message</a></li>
-                <li><a className={s.item} href="#">Users</a></li>
-                <li><a className={s.item} href="#">News</a></li>
-                <li><a className={s.item} href="#">Music</a></li>
-                <li><a className={s.item} href="#">Settings</a></li>
+                <li><a className={s.item} href="/profile">Profile</a></li>
+                <li><a className={s.item} href="/dialogs">Message</a></li>
+                <li><a className={s.item} href="/users">Users</a></li>
+                <li><a className={s.item} href="/news">News</a></li>
+                <li><a className={s.item} href="/music">Music</a></li>
+                <li><a className={s.item} href="/settings">Settings</a></li>
             </ul>
         </div>
     )
