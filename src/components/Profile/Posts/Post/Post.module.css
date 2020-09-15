@@ -1,5 +1,19 @@
 .post{
     color: #FFF;
+    margin: 20px;
+}
+.post img{
+    height: 50px;
+    width: 50px;
+    background: bisque;
+    border-radius: 50%;
+}
+.post span{
+
+}
+.likes{
+    font-size: 14px;
+    color: darkred;
 }
 .profile{
     justify-content: center;
@@ -11,9 +25,7 @@
 .postCreator textarea{
     width: 400px;
 }
-.postCreator button{
+.postCreator button {
     width: 100px;
     height: 30px;
-
-
 }
