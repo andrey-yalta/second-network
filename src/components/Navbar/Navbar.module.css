@@ -1,0 +1,18 @@
+.sidebar{
+    grid-area: s;
+    background: grey;
+    padding: 40px;
+}
+.sidebar ul{
+}
+.sidebar ul li{
+    display: block;
+}
+.sidebar  ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+.sidebar  ul li a:hover{
+    text-decoration: underline;
+}
