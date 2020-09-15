@@ -9,9 +9,9 @@ const Posts =()=>{
                 <br/>
                 <button> post</button>
             </div>
-            <Post text ={"post 1"} like = {13}/>
-            <Post text ={"post 2"} like = {1}/>
-            <Post text ={"post 3"} like = {10}/>
+            <Post message ={"post 1"} like = {13}/>
+            <Post message ={"post 2"} like = {1}/>
+            <Post message ={"post 3"} like = {10}/>
         </div>
 
     )
