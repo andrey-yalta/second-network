@@ -4,6 +4,7 @@ import profileBackground from "./profile.jpeg"
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
+import Dialogs from "./components/Dialogs/Dialogs";
 
 const App =()=>{
   return(
@@ -11,7 +12,8 @@ const App =()=>{
          <Header/>
          <Navbar/>
           <div className="content" >
-              <Profile/>
+              {/*<Profile/>*/}
+              <Dialogs/>
           </div>
       </div>
   )
