@@ -2,4 +2,16 @@
     color: #FFFFFF;
     font-size: 18px;
     margin: 10px;
+    display: flex;
+}
+.user img{
+    width: 30px;
+    height: 30px;
+    padding-right: 5px;
+}
+.user.active{
+    color: #597da3;
+}
+.users{
+    margin-right: 30px;
 }
