@@ -1,17 +1,20 @@
 import React from "react";
 import s from "./Navbar.module.css"
+import {NavLink} from "react-router-dom";
 
 const Navbar =()=> {
 
     return(
         <div className={s.sidebar} >
             <ul>
-                <li><a className={s.item} href="/profile">Profile</a></li>
-                <li><a className={s.item} href="/dialogs">Message</a></li>
-                <li><a className={s.item} href="/users">Users</a></li>
-                <li><a className={s.item} href="/news">News</a></li>
-                <li><a className={s.item} href="/music">Music</a></li>
-                <li><a className={s.item} href="/settings">Settings</a></li>
+                {/*NAvLink нужны чтобы страница не перезагружалась при переходе на ссылки*/}
+                {/* activeClassName - надо сделать чтобы выделять ссылки (в  css - .item.active надо делать*/}
+                <li><NavLink className={s.item} activeClassName={s.active} to="/profile">Profile</NavLink></li>
+                <li><NavLink className={s.item} activeClassName={s.active} to="/dialogs">Message</NavLink></li>
+                <li><NavLink className={s.item} activeClassName={s.active} to="/users">Users</NavLink></li>
+                <li><NavLink className={s.item} activeClassName={s.active} to="/news">News</NavLink></li>
+                <li><NavLink className={s.item} activeClassName={s.active} to="/music">Music</NavLink></li>
+                <li><NavLink className={s.item} activeClassName={s.active} to="/settings">Settings</NavLink></li>
             </ul>
         </div>
     )

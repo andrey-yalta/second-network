@@ -19,6 +19,6 @@
 .item{
 
 }
-.active{
-    color: blueviolet;
+.item.active{
+    color: #282c34;
 }
