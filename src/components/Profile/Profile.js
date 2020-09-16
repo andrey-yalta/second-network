@@ -1,12 +1,11 @@
 import React from "react";
 import s from "./Profile.module.css"
-import profileBackground from "../../profile.jpeg";
 import Posts from "./Posts/Posts";
+import ProfileInfo from "./ProfileInfo";
 const Profile =()=>{
     return(
         <div className={s.profile}>
-            <img src={profileBackground} alt="prfile"/>
-            <div> Ava + Description</div>
+            <ProfileInfo/>
             <Posts/>
         </div>
     )

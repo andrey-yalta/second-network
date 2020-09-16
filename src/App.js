@@ -15,7 +15,7 @@ const App =()=>{
          <Navbar/>
           <div className="content" >
               <Route path={"/profile"} component ={Profile}/>    {/* меняет url на profile и отрисовывает компоненту профайл */}
-              <Route parh={"/dialogs"} component={Dialogs}/>
+              <Route path={"/dialogs"} component={Dialogs}/>
           </div>
       </div>
       </BrowserRouter>
