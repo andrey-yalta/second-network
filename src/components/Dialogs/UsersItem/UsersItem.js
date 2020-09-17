@@ -18,5 +18,5 @@ let users = [
     {id:5,name:"Sasha"},
 ]
 
-let usersElements = users.map(u => <UserItem id={u.id} name={u.name}/>); {/* обработка массива users с помощью map в jsx итемы*/}
-export default usersElements;
+
+export default UserItem;

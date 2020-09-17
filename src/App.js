@@ -7,7 +7,12 @@ import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Route} from "react-router-dom";
 
-const App =()=>{
+
+
+
+
+const App =(props)=>{
+    debugger;
   return(
       <BrowserRouter>    {/* короче это библиотека которая позволяет менять url адресс */}
       <div className="main">
@@ -17,8 +22,8 @@ const App =()=>{
               {/*<Route path={"/profile"} component ={Profile}/>    /!* меняет url на profile и отрисовывает компоненту профайл *!/*/}
               {/*<Route path={"/dialogs"} component={Dialogs}/>*/}
 
-              <Route path={"/profile"} render={ ()=> <Profile/> }/>  {/* мы используем рендер чтобы вызывать компоненту как тег чтобы можно было прокинуть пропсы*/}
-              <Route path={"/dialogs"} render={ ()=> <Dialogs/> }/>
+              <Route path={"/profile"} render={ ()=> <Profile posts={props.state.posts}/> }/>  {/* мы используем рендер чтобы вызывать компоненту как тег чтобы можно было прокинуть пропсы*/}
+              <Route path={"/dialogs"} render={ ()=> <Dialogs messagesData={props.state.messagesData}/> }/>
 
           </div>
       </div>

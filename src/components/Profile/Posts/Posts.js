@@ -9,10 +9,12 @@ let posts = [
     {text:"post 3 ", id:3, like:15},
     {text:"post 4 ", id:4, like:2},
 ]
-let postsElements = posts.map(p=> <Post message={p.text} id={p.id} like={p.like}/>);
+// let postsElements = posts.map(p=> <Post message={p.text} id={p.id} like={p.like}/>);
 
 
-const Posts =()=>{
+const Posts =(props)=>{
+    debugger;
+    let postsElements = props.posts.map(p=> <Post message={p.text} id={p.id} like={p.like}/>);
     return(
         <div>
             <div className={s.postCreator}>
