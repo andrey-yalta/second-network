@@ -14,8 +14,12 @@ const App =()=>{
          <Header/>
          <Navbar/>
           <div className="content" >
-              <Route path={"/profile"} component ={Profile}/>    {/* меняет url на profile и отрисовывает компоненту профайл */}
-              <Route path={"/dialogs"} component={Dialogs}/>
+              {/*<Route path={"/profile"} component ={Profile}/>    /!* меняет url на profile и отрисовывает компоненту профайл *!/*/}
+              {/*<Route path={"/dialogs"} component={Dialogs}/>*/}
+
+              <Route path={"/profile"} render={ ()=> <Profile/> }/>  {/* мы используем рендер чтобы вызывать компоненту как тег чтобы можно было прокинуть пропсы*/}
+              <Route path={"/dialogs"} render={ ()=> <Dialogs/> }/>
+
           </div>
       </div>
       </BrowserRouter>
