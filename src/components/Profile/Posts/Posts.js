@@ -1,6 +1,17 @@
 import React from "react";
 import s from "./Posts.module.css"
 import Post from "./Post/Post";
+
+
+let posts = [
+    {text:"post 1 ", id:1, like:12},
+    {text:"post 2 ", id:2, like:13},
+    {text:"post 3 ", id:3, like:15},
+    {text:"post 4 ", id:4, like:2},
+]
+let postsElements = posts.map(p=> <Post message={p.text} id={p.id} like={p.like}/>);
+
+
 const Posts =()=>{
     return(
         <div>
@@ -9,9 +20,7 @@ const Posts =()=>{
                 <br/>
                 <button> post</button>
             </div>
-            <Post message ={"post 1"} like = {13}/>
-            <Post message ={"post 2"} like = {1}/>
-            <Post message ={"post 3"} like = {10}/>
+            {postsElements}
         </div>
 
     )
