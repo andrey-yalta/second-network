@@ -17,7 +17,13 @@ const Posts =(props)=>{
     let addPost = ()=>{
         let text = addNewPost.current.value;
         props.addPost(text,2)
-        addNewPost.current.value = "";
+
+    }
+    let postChanged =()=>{
+        let postValue  = addNewPost.current.value;
+        debugger;
+        props.postChanged(postValue);
+
     }
 
     debugger;
@@ -26,7 +32,7 @@ const Posts =(props)=>{
     return(
         <div>
             <div className={s.postCreator}>
-                <textarea ref={addNewPost}></textarea>
+                <textarea onChange={postChanged} ref={addNewPost} value={props.postCurrentValue}/>
 
                 <br/>
                 <button onClick={addPost}> post</button>

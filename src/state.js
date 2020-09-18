@@ -17,19 +17,27 @@ let state = {
             {id: 6, message: "Hello from Yata with love"}
         ],
     },
-
+    postPage:{
     posts : [
         {text: "post 1 ", id: 1, like: 12},
         {text: "post 2 ", id: 2, like: 13},
         {text: "post 3 ", id: 3, like: 15},
         {text: "post 4 ", id: 4, like: 2},
     ],
+    currentValue:"",}
 
 }
 export const addPost =(postText,postLike)=>{
     debugger;
-    state.posts.push({text:postText, id: 6, like: postLike})
-    renderEntireTree(state,addPost);
+    state.postPage.posts.push({text:postText, id: 6, like: postLike})
+    state.postPage.currentValue = "";
+    renderEntireTree(state,addPost, postChanged);
+
+}
+export const postChanged =(value)=>{
+    debugger;
+    state.postPage.currentValue = value;
+    renderEntireTree(state,addPost, postChanged);
 }
 
 export default state;

@@ -23,7 +23,7 @@ const App =(props)=>{
               {/*<Route path={"/profile"} component ={Profile}/>    /!* меняет url на profile и отрисовывает компоненту профайл *!/*/}
               {/*<Route path={"/dialogs"} component={Dialogs}/>*/}
 
-              <Route path={"/profile"} render={ ()=> <Profile posts={props.state.posts} addPost={props.addPost}/> }/>  {/* мы используем рендер чтобы вызывать компоненту как тег чтобы можно было прокинуть пропсы*/}
+              <Route path={"/profile"} render={ ()=> <Profile postPage={props.state.postPage} addPost={props.addPost} postChanged={props.postChanged}/>  }/>  {/* мы используем рендер чтобы вызывать компоненту как тег чтобы можно было прокинуть пропсы*/}
               <Route path={"/dialogs"} render={ ()=> <Dialogs dialogsPage={props.state.dialogsPage} /> }/>
 
           </div>

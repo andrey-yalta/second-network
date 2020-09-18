@@ -5,10 +5,12 @@ import App from './App';
 
 
 
-let renderEntireTree =(state, addPost)=>{
+
+
+let renderEntireTree =(state, addPost,postChanged)=>{
     ReactDOM.render(
         <React.StrictMode>
-            <App state ={state} addPost={addPost}/>
+            <App state ={state} addPost={addPost} postChanged={postChanged}/>
         </React.StrictMode>,
         document.getElementById('root')
         // Здесь важный момент, мы вставляем нашу главную компоненту из App
