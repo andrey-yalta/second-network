@@ -1,4 +1,3 @@
-import renderEntireTree from "./render";
 
 let state = {
     dialogsPage:{
@@ -27,17 +26,24 @@ let state = {
     currentValue:"",}
 
 }
+let renderEntireTree =()=>{};
 export const addPost =(postText,postLike)=>{
     debugger;
     state.postPage.posts.push({text:postText, id: 6, like: postLike})
     state.postPage.currentValue = "";
-    renderEntireTree(state,addPost, postChanged);
+    renderEntireTree();
 
 }
 export const postChanged =(value)=>{
     debugger;
     state.postPage.currentValue = value;
-    renderEntireTree(state,addPost, postChanged);
+    renderEntireTree();
+}
+
+
+//короче это колбэк, чтобы перерисовывать страницу когда она меняется
+export const subscribe =(observer)=>{
+   renderEntireTree = observer;
 }
 
 export default state;
