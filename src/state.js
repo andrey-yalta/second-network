@@ -1,3 +1,5 @@
+import renderEntireTree from "./render";
+
 let state = {
     dialogsPage:{
         users : [
@@ -27,6 +29,7 @@ let state = {
 export const addPost =(postText,postLike)=>{
     debugger;
     state.posts.push({text:postText, id: 6, like: postLike})
+    renderEntireTree(state,addPost);
 }
 
 export default state;
