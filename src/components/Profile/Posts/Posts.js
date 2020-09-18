@@ -13,14 +13,22 @@ let posts = [
 
 
 const Posts =(props)=>{
+    let addNewPost = React.createRef();
+    let addPost = ()=>{
+        let text = addNewPost.current.value;
+        props.addPost(text,2)
+    }
+
     debugger;
     let postsElements = props.posts.map(p=> <Post message={p.text} id={p.id} like={p.like}/>);
+
     return(
         <div>
             <div className={s.postCreator}>
-                <textarea></textarea>
+                <textarea ref={addNewPost}></textarea>
+
                 <br/>
-                <button> post</button>
+                <button onClick={addPost}> post</button>
             </div>
             {postsElements}
         </div>

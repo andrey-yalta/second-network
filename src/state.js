@@ -21,6 +21,12 @@ let state = {
         {text: "post 2 ", id: 2, like: 13},
         {text: "post 3 ", id: 3, like: 15},
         {text: "post 4 ", id: 4, like: 2},
-    ]
+    ],
+
 }
+export const addPost =(postText,postLike)=>{
+    debugger;
+    state.posts.push({text:postText, id: 6, like: postLike})
+}
+
 export default state;
