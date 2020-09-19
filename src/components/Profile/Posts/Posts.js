@@ -16,13 +16,14 @@ const Posts =(props)=>{
     let addNewPost = React.createRef();
     let addPost = ()=>{
         let text = addNewPost.current.value;
-        props.addPost(text,2)
-
+        let action ={type:"ADD-POST", postText:text, postLike:2}
+        props.dispatch(action)
     }
     let postChanged =()=>{
         let postValue  = addNewPost.current.value;
         debugger;
-        props.postChanged(postValue);
+        let action = {type:"POST-CHANGED", value:postValue};
+        props.dispatch(action);
 
     }
 

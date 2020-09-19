@@ -10,7 +10,7 @@ let renderEntireTree =()=>{
         <React.StrictMode>
             {/* функция bind нужна чтобы при вызове методов эти методы ссылались на свой родно обьект в котором они созданы
             либо на тот обьект, с которым они забайдины*/}
-            <App state ={store.getState()} addPost={store.addPost.bind(store)} postChanged={store.postChanged.bind(store)}/>
+            <App state ={store.getState()} dispatch={store.dispatch.bind(store)}/>
         </React.StrictMode>,
         document.getElementById('root')
     );
