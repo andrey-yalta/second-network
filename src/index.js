@@ -1,13 +1,16 @@
 import * as serviceWorker from './serviceWorker';
-import state, {addPost, postChanged, subscribe} from "./state";
+import store from "./state";
 import ReactDOM from "react-dom";
 import React from "react";
 import App from "./App";
 
 let renderEntireTree =()=>{
+    debugger;
     ReactDOM.render(
         <React.StrictMode>
-            <App state ={state} addPost={addPost} postChanged={postChanged}/>
+            {/* функция bind нужна чтобы при вызове методов эти методы ссылались на свой родно обьект в котором они созданы
+            либо на тот обьект, с которым они забайдины*/}
+            <App state ={store.getState()} addPost={store.addPost.bind(store)} postChanged={store.postChanged.bind(store)}/>
         </React.StrictMode>,
         document.getElementById('root')
     );
@@ -17,5 +20,5 @@ renderEntireTree();
 
 
 //короче это колбэк, чтобы перерисовывать страницу когда она меняется
-subscribe(renderEntireTree);
+store.subscribe(renderEntireTree);
 serviceWorker.unregister();
