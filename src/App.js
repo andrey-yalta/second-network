@@ -24,7 +24,7 @@ const App =(props)=>{
               {/*<Route path={"/dialogs"} component={Dialogs}/>*/}
 
               <Route path={"/profile"} render={ ()=> <Profile postPage={props.state.postPage} dispatch={props.dispatch}/>  }/>  {/* мы используем рендер чтобы вызывать компоненту как тег чтобы можно было прокинуть пропсы*/}
-              <Route path={"/dialogs"} render={ ()=> <Dialogs dialogsPage={props.state.dialogsPage} /> }/>
+              <Route path={"/dialogs"} render={ ()=> <Dialogs dialogsPage={props.state.dialogsPage} dispatch={props.dispatch} /> }/>
 
           </div>
       </div>

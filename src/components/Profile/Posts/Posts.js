@@ -1,6 +1,7 @@
 import React from "react";
 import s from "./Posts.module.css"
 import Post from "./Post/Post";
+import {addPostActionCreator, postChangedActionCreator} from "../../../state";
 
 
 let posts = [
@@ -9,26 +10,21 @@ let posts = [
     {text:"post 3 ", id:3, like:15},
     {text:"post 4 ", id:4, like:2},
 ]
-// let postsElements = posts.map(p=> <Post message={p.text} id={p.id} like={p.like}/>);
-
 
 const Posts =(props)=>{
     let addNewPost = React.createRef();
     let addPost = ()=>{
-        let text = addNewPost.current.value;
-        let action ={type:"ADD-POST", postText:text, postLike:2}
-        props.dispatch(action)
+        props.dispatch(addPostActionCreator())
     }
     let postChanged =()=>{
         let postValue  = addNewPost.current.value;
         debugger;
-        let action = {type:"POST-CHANGED", value:postValue};
-        props.dispatch(action);
+        props.dispatch(postChangedActionCreator(postValue));
 
     }
 
     debugger;
-    let postsElements = props.posts.map(p=> <Post message={p.text} id={p.id} like={p.like}/>);
+    let postsElements = props.posts.map(p=> <Post key={p.id} message={p.text} id={p.id} like={p.like}/>);
 
     return(
         <div>

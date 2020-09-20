@@ -1,3 +1,7 @@
+const ADD_POST = "ADD-POST";
+const POST_CHANGED = "POST-CHANGED";
+const ADD_MESSAGE = "ADD-MESSAGE";
+const MESSAGE_CHANGED = "MESSAGE-CHANGED";
 let store = {
     _state: {
         dialogsPage: {
@@ -15,6 +19,7 @@ let store = {
                 {id: 5, message: "Yo"},
                 {id: 6, message: "Hello from Yata with love"}
             ],
+            currentValue:""
         },
         postPage: {
             posts: [
@@ -38,15 +43,37 @@ let store = {
     },
     // даннаый метод создан чтобы собрать в нем все методы по работе со стейтом и передавать лишь его а не 100+ методов по отдельности
     dispatch(action){
+        debugger;
         if(action.type === "ADD-POST"){
-            this._state.postPage.posts.push({text: action.postText, id: 6, like: action.postLike})
+            debugger;
+            this._state.postPage.posts.push({text: this._state.postPage.currentValue , id: 6, like: 2})
             this._state.postPage.currentValue = "";
             this.renderEntireTree();
         }
         else if(action.type ==="POST-CHANGED"){
+            debugger;
             this._state.postPage.currentValue = action.value;
+            this.renderEntireTree();
+        }
+        else if(action.type ==="ADD-MESSAGE"){
+            debugger;
+            this._state.dialogsPage.messages.push({id: 7, message: this._state.dialogsPage.currentValue})
+            this._state.dialogsPage.currentValue = "";
+            this.renderEntireTree();
+        }
+        else if(action.type ==="MESSAGE-CHANGED"){
+            debugger;
+            this._state.dialogsPage.currentValue = action.value;
             this.renderEntireTree();
         }
     }
 }
 export default store;
+
+export const addPostActionCreator =()=> ({type:ADD_POST})
+
+export const postChangedActionCreator =(postValue)=>({type:POST_CHANGED, value:postValue})
+
+export const addMessageActionCreator =()=> ({type:ADD_MESSAGE})
+
+export const messageChangedActionCreator =(messageValue)=>({type:MESSAGE_CHANGED, value:messageValue})
