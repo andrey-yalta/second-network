@@ -1,3 +1,6 @@
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+
 const ADD_POST = "ADD-POST";
 const POST_CHANGED = "POST-CHANGED";
 const ADD_MESSAGE = "ADD-MESSAGE";
@@ -44,28 +47,9 @@ let store = {
     // даннаый метод создан чтобы собрать в нем все методы по работе со стейтом и передавать лишь его а не 100+ методов по отдельности
     dispatch(action){
         debugger;
-        if(action.type === "ADD-POST"){
-            debugger;
-            this._state.postPage.posts.push({text: this._state.postPage.currentValue , id: 6, like: 2})
-            this._state.postPage.currentValue = "";
-            this.renderEntireTree();
-        }
-        else if(action.type ==="POST-CHANGED"){
-            debugger;
-            this._state.postPage.currentValue = action.value;
-            this.renderEntireTree();
-        }
-        else if(action.type ==="ADD-MESSAGE"){
-            debugger;
-            this._state.dialogsPage.messages.push({id: 7, message: this._state.dialogsPage.currentValue})
-            this._state.dialogsPage.currentValue = "";
-            this.renderEntireTree();
-        }
-        else if(action.type ==="MESSAGE-CHANGED"){
-            debugger;
-            this._state.dialogsPage.currentValue = action.value;
-            this.renderEntireTree();
-        }
+        this._state.postPage = profileReducer( this._state.postPage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this.renderEntireTree();
     }
 }
 export default store;
