@@ -12,9 +12,11 @@ import {BrowserRouter, Route} from "react-router-dom";
 
 
 
+
 const App =(props)=>{
     debugger;
   return(
+
       <BrowserRouter>    {/* короче это библиотека которая позволяет менять url адресс */}
       <div className="main">
          <Header/>
@@ -24,11 +26,12 @@ const App =(props)=>{
               {/*<Route path={"/dialogs"} component={Dialogs}/>*/}
 
               <Route path={"/profile"} render={ ()=> <Profile postPage={props.state.profilePage} dispatch={props.dispatch}/>  }/>  {/* мы используем рендер чтобы вызывать компоненту как тег чтобы можно было прокинуть пропсы*/}
-              <Route path={"/dialogs"} render={ ()=> <DialogsContainer dialogsPage={props.state.dialogsPage} dispatch={props.dispatch} /> }/>
+              <Route path={"/dialogs"} render={ ()=> <DialogsContainer  /> }/>
 
           </div>
       </div>
       </BrowserRouter>
+
   )
 }
 export default App;

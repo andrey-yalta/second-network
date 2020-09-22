@@ -1,6 +1,8 @@
 import React from "react";
 import s from "./Dialogs.module.css"
-import {messageChangedActionCreator} from "../../redux/state";
+import UserItem from "./UsersItem/UsersItem";
+import Message from "./Messages/Messages";
+
 
 
 
@@ -16,10 +18,10 @@ const Dialogs =(props)=>{
     return(
         <div className={s.dialogs}>
             <div className={s.users}>
-                {props.users}
+                {props.usersElements}
             </div>
             <div className={s.messages}>
-                {props.messages}
+                {props.messageElements}
                 <div className={s.area}>
                     <textarea
                         placeholder={"Enter your message"} onChange={changedMessage} value={props.value}/>
