@@ -49,7 +49,7 @@ let store = {
         debugger;
         this._state.postPage = profileReducer( this._state.postPage, action);
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
-        this.renderEntireTree();
+        this.renderEntireTree(this._state);
     }
 }
 export default store;
