@@ -9,10 +9,19 @@ class Users extends React.Component {
         super(props);
     }
     componentDidMount() {
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response =>{this.props.setUsers(response.data.items)})
+        debugger;
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+            .then(response =>{this.props.setUsers(response.data.items);
+            this.props.setTotalUsersCount(response.data.totalCount)})
         debugger;
     }
-
+    onPageChange (p){
+        this.props.changeCurrentPage(p)
+        debugger;
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.props.pageSize}`)
+            .then(response =>{this.props.setUsers(response.data.items)})
+        debugger;
+    }
     // let setState =()=>{
     //     debugger;
     //     if (props.usersPage.users.length ===0){
@@ -25,11 +34,30 @@ class Users extends React.Component {
     //         debugger;
     //     }
     // }
+    paginator(){
 
+
+
+    }
     render() {
+        let pageCount = this.props.totalCount /this.props.pageSize
+        let pages =[];
+        {/*захардкодил число страниц - потом надо будет сделать нормально*/}
+        for(let i=1; i<40; i++){
+            pages.push(i);
+        }
         return (
 
         <div>
+
+            <div className={s.paginator}>
+                {pages.map(p=>(<span className={this.props.currentPage === p && s.active}
+                                     key={p.id}
+                                     onClick={ ()=>{this.onPageChange(p)}}>
+                    {p}</span>))}
+            </div>
+            <br/>
+
 
 
             {this.props.usersPage.users.map(u => (<div className={s.userItem} key={u.id}>
@@ -38,9 +66,7 @@ class Users extends React.Component {
                 <br/>
                 <span>status : {u.status}</span>
                 <br/>
-                {/*<span>{u.location.city}</span>*/}
-                {/*<br/>*/}
-                {/*<span>{u.location.country}</span><br/>*/}
+
                 <span>user id: {u.id}</span>
                 <br/>
                 {u.follow ? <button onClick={() => {
