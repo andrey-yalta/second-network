@@ -8,7 +8,7 @@ const Profile =(props)=>{
     return(
         <div className={s.profile}>
             <ProfileInfo />
-            <PostsContainer postCurrentValue ={props.postPage.currentValue} posts={props.postPage.posts} dispatch={props.dispatch}/>
+            <PostsContainer />
         </div>
     )
 }

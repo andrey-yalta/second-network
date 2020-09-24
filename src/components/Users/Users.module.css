@@ -1,0 +1,14 @@
+.userItem{
+
+
+
+}
+.userItem h3{
+    font-size: 14px;
+
+}
+.userItem img{
+    width: 60px;
+    height: 60px;
+    border-radius: 25px;
+}
