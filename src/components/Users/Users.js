@@ -21,7 +21,10 @@ const Users =(props)=>{
 
     return(
 
-        <div> <button onClick={setState}>setUsers</button> {props.usersPage.users.map(u=>(<div className={s.userItem} key={u.id}>
+        <div>
+
+            {setState()}
+            {props.usersPage.users.map(u=>(<div className={s.userItem} key={u.id}>
             <h3>name: {u.name}</h3>
             <img src={u.photos.small ? u.pgithotos.small: userIcon} alt=""/>
             <br/>
