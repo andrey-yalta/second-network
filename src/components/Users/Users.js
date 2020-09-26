@@ -1,11 +1,12 @@
 import React from "react";
 import s from "./Users.module.css"
 import userIcon from "./../../common/img/userIcon.png"
-import * as axios from "axios"
+
+
 
 
 const Users =(props)=>{
-        debugger;
+
         return (
 
             <div>
@@ -37,6 +38,6 @@ const Users =(props)=>{
                     }}> follow</button>}
 
                 </div>))}</div>
-        )
-    }
+        )}
+
 export default Users;

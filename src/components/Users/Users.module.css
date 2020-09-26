@@ -20,3 +20,8 @@
     padding: 1px;
     border: 1px solid black;
 }
+.preloader{
+    background: grey;
+    width: 100px;
+    /*height: 100px;*/
+}

@@ -9,6 +9,7 @@ let initialState ={
     totalCount:20,
     pageSize:5,
     currentPage:1,
+    isFetching:false,
 
 }
 let  userReducers =(state = initialState,action)=>{
@@ -45,6 +46,11 @@ let  userReducers =(state = initialState,action)=>{
             let newState = {...state, totalCount: action.totalCount};
 
             return newState;}
+        case "TOGGLE-IS-FETCHING":{
+            debugger;
+            let newState = {...state, isFetching: action.isFetchingValue};
+
+            return newState;}
         default:
             return state;
     }
@@ -57,3 +63,4 @@ export const followAC =(userId)=> ({type:"FOLLOW", userId:userId});
 export const setUsersAC =(state)=>({type:"SET-USERS", state:state});
 export const changeCurrentPageAC =(currentPage)=>({type:"CHANGE-CURRENT-PAGE", currentPage:currentPage});
 export const setTotalUsersCountAC =(totalCount)=>({type:"SET-TOTAL-USER-COUNT", totalCount:totalCount});
+export const toggleIsFetchingAC =(isFetchingValue)=>({type:"TOGGLE-IS-FETCHING",isFetchingValue:isFetchingValue })
