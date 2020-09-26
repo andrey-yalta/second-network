@@ -3,7 +3,8 @@ import s from "./Users.module.css"
 import userIcon from "./../../common/img/userIcon.png"
 import * as axios from "axios"
 import Users from "./Users";
-import PreloaderImg from "../../common/img/3.gif";
+import PreloaderImg from "../../common/img/circles.svg";
+import {toggleIsFetching} from "../../redux/users-reducer";
 
 
 class UsersAPIContainer extends React.Component {
@@ -13,12 +14,12 @@ class UsersAPIContainer extends React.Component {
 
     componentDidMount() {
         debugger;
-        this.props.toogleIsFetching(true);
+        this.props.toggleIsFetching(true);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(response => {
                 this.props.setUsers(response.data.items);
                 this.props.setTotalUsersCount(response.data.totalCount)
-                this.props.toogleIsFetching(false);
+                this.props.toggleIsFetching(false);
             })
         debugger;
     }
@@ -26,12 +27,12 @@ class UsersAPIContainer extends React.Component {
     //в компоненте снизу можно обращатся к функциям через this напрямую, потому что в рендере Users мы раскукожили props
     onPageChange(p) {
         this.changeCurrentPage(p)
-        this.toogleIsFetching(true);
+        this.toggleIsFetching(true);
         debugger;
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${p}&count=${this.pageSize}`)
             .then(response => {
                 this.setUsers(response.data.items)
-                this.toogleIsFetching(false);
+                this.toggleIsFetching(false);
             })
         debugger;
     }
@@ -50,7 +51,7 @@ class UsersAPIContainer extends React.Component {
         debugger;
         if (this.props.isFetching) {
             console.log("fetching true")
-            return (<div>H`ELLO<img className={s.preloader} src={PreloaderImg} alt=""/></div>)
+            return (<div>Loading... <br/><img className={s.preloader} src={PreloaderImg} alt=""/></div>)
         } else {
             console.log("fetching false");
 

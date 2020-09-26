@@ -21,7 +21,7 @@
     border: 1px solid black;
 }
 .preloader{
-    background: grey;
+    background:  darkgrey;;
     width: 100px;
-    /*height: 100px;*/
+    height: 100px;
 }
