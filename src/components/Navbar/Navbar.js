@@ -2,10 +2,11 @@ import React from "react";
 import s from "./Navbar.module.css"
 import {NavLink} from "react-router-dom";
 
-const Navbar =()=> {
-
+const Navbar =(props)=> {
+    debugger;
     return(
         <div className={s.sidebar} >
+            {/*{props.login}*/}
             <ul>
                 {/*NAvLink нужны чтобы страница не перезагружалась при переходе на ссылки*/}
                 {/* activeClassName - надо сделать чтобы выделять ссылки (в  css - .item.active надо делать*/}
