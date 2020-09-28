@@ -1,3 +1,4 @@
+const SET_PROFILE = "SET-PROFILE";
 let initialState ={
 
         posts: [
@@ -7,6 +8,8 @@ let initialState ={
             {text: "post 4 ", id: 4, like: 2},
         ],
         currentValue: "",
+        profile: {},
+        isFetching:false,
 
 }
 let  profileReducer =(state = initialState,action)=>{
@@ -25,8 +28,18 @@ let  profileReducer =(state = initialState,action)=>{
             let newState = {...state};
             newState.currentValue = action.value;
             return newState;}
+        case "SET-PROFILE":{
+            debugger;
+            return { ...state, profile: {...action.profile}};
+        }
+        case "TOGGLE-IS-FETCHING":{
+            debugger;
+            return {...state, isFetching: action.isFetchingValue};
+        }
         default:
             return state;
     }
 }
 export default profileReducer;
+export const toggleIsFetching =(isFetchingValue)=>({type:"TOGGLE-IS-FETCHING",isFetchingValue:isFetchingValue })
+export const setProfile =(profile)=>({type:SET_PROFILE, profile:profile})
