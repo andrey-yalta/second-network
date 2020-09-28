@@ -6,6 +6,7 @@ import {
 import {connect} from "react-redux";
 import ProfileAPIContainer from "./ProfileAPIContainer";
 import {setProfile} from "../../redux/profile-reducer";
+import {withRouter} from "react-router-dom";
 
 
 let mapStateToProps = (state) => {
@@ -18,6 +19,6 @@ let mapStateToProps = (state) => {
     };
 };
 
-
-const ProfileContainer = connect(mapStateToProps, {setProfile, toggleIsFetching})(ProfileAPIContainer);
+let withUrlDataContainerComponent = withRouter(ProfileAPIContainer);
+const ProfileContainer = connect(mapStateToProps, {setProfile, toggleIsFetching})(withUrlDataContainerComponent);
 export default ProfileContainer;

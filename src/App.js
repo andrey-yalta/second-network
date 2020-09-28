@@ -9,12 +9,6 @@ import {BrowserRouter, Route} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 
-
-
-
-
-
-
 const App =(props)=>{
     // debugger;
   return(
@@ -27,7 +21,7 @@ const App =(props)=>{
               {/*<Route path={"/profile"} component ={Profile}/>    /!* меняет url на profile и отрисовывает компоненту профайл *!/*/}
               {/*<Route path={"/dialogs"} component={Dialogs}/>*/}
 
-              <Route path={"/profile"} render={ ()=> <ProfileContainer /> }/> {/* мы используем рендер чтобы вызывать компоненту как тег чтобы можно было прокинуть пропсы*/}
+              <Route path={"/profile/:userId?"} render={ ()=> <ProfileContainer /> }/> {/* мы используем рендер чтобы вызывать компоненту как тег чтобы можно было прокинуть пропсы*/}
               <Route path={"/dialogs"} render={ ()=> <DialogsContainer  /> }/>
               <Route path={"/users"} render={ ()=> <UsersContainer  /> }/>
 

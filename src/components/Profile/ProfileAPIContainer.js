@@ -5,9 +5,10 @@ import Profile from "./Profile";
 
 class ProfileAPIContainer extends React.Component {
     componentDidMount() {
-        // debugger;
+        debugger;
         this.props.toggleIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+        let userId = this.props.match.params.userId;
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/`+userId)
             .then(response => {
                 this.props.setProfile(response.data);
                 this.props.toggleIsFetching(false);
