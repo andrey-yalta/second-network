@@ -1,3 +1,4 @@
+import {usersAPI} from "../api/api";
 
 let initialState ={
 
@@ -75,3 +76,18 @@ export const changeCurrentPage =(currentPage)=>({type:"CHANGE-CURRENT-PAGE", cur
 export const setTotalUsersCount =(totalCount)=>({type:"SET-TOTAL-USER-COUNT", totalCount:totalCount});
 export const toggleIsFetching =(isFetchingValue)=>({type:"TOGGLE-IS-FETCHING",isFetchingValue:isFetchingValue });
 export const toggleIFollowingInProgress =(isFetching,userId)=>({type:"TOGGLE-FOLLOWING-IN-PROGRESS",isFetching:isFetching , userId:userId});
+
+
+
+export const setUsersThunkCreator=(currentPage,pageSize)=> {
+    return  (dispatch) => {
+        dispatch(toggleIsFetching(true));
+        usersAPI.getUsers(currentPage, pageSize)
+            .then(data => {
+                dispatch(setUsers(data.items));
+                dispatch(setTotalUsersCount(data.totalCount))
+                dispatch(toggleIsFetching(false));
+            })
+    }
+
+}

@@ -15,13 +15,8 @@ class UsersAPIContainer extends React.Component {
 
     componentDidMount() {
         debugger;
-        this.props.toggleIsFetching(true);
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
-            .then(data => {
-                this.props.setUsers(data.items);
-                this.props.setTotalUsersCount(data.totalCount)
-                this.props.toggleIsFetching(false);
-            })
+        // это уже санка
+        this.props.setUsersThunkCreator(this.props.currentPage, this.props.pageSize);
         debugger;
     }
 
@@ -33,6 +28,7 @@ class UsersAPIContainer extends React.Component {
         usersAPI.getUsers(p, this.pageSize)
             .then(data => {
                 this.setUsers(data.items)
+                //тогл это короче начало и конец анимации
                 this.toggleIsFetching(false);
             })
         debugger;
