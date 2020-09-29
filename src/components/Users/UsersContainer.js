@@ -5,7 +5,7 @@ import {
     follow,
     changeCurrentPage,
     setTotalUsersCount,
-    toggleIsFetching,
+    toggleIsFetching, toggleIFollowingInProgress,
 } from "../../redux/users-reducer";
 import {connect} from "react-redux";
 import Users from "./UsersAPIContainer";
@@ -21,6 +21,7 @@ let mapStateToProps = (state) => {
         pageSize:state.usersPage.pageSize,
         currentPage:state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
+        followingInProgress: state.usersPage.followingInProgress,
 
     };
 };
@@ -31,6 +32,7 @@ const UsersContainer = connect(mapStateToProps, {follow,
     setUsers,
     changeCurrentPage,
     setTotalUsersCount,
-    toggleIsFetching})(UsersAPIContainer);
+    toggleIsFetching,
+    toggleIFollowingInProgress})(UsersAPIContainer);
 export default UsersContainer;
 

@@ -18,8 +18,8 @@ class UsersAPIContainer extends React.Component {
         this.props.toggleIsFetching(true);
         usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
             .then(data => {
-                this.props.setUsers(data.data.items);
-                this.props.setTotalUsersCount(data.data.totalCount)
+                this.props.setUsers(data.items);
+                this.props.setTotalUsersCount(data.totalCount)
                 this.props.toggleIsFetching(false);
             })
         debugger;
@@ -32,7 +32,7 @@ class UsersAPIContainer extends React.Component {
         debugger;
         usersAPI.getUsers(p, this.pageSize)
             .then(data => {
-                this.setUsers(data.data.items)
+                this.setUsers(data.items)
                 this.toggleIsFetching(false);
             })
         debugger;
