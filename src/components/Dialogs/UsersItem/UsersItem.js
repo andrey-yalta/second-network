@@ -10,13 +10,13 @@ const UserItem = (props)=>{
     )
 }
 
-let users = [
-    {id:1,name:"Dimych"},
-    {id:2,name:"Ivan"},
-    {id:3,name:"Sveta"},
-    {id:4,name:"Olga"},
-    {id:5,name:"Sasha"},
-]
+// let users = [
+//     {id:1,name:"Dimych"},
+//     {id:2,name:"Ivan"},
+//     {id:3,name:"Sveta"},
+//     {id:4,name:"Olga"},
+//     {id:5,name:"Sasha"},
+// ]
 
 
 export default UserItem;

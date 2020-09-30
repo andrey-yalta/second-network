@@ -1,7 +1,9 @@
+import {headerAPI} from "../api/api";
+
 const SET_AUTH_DATA = "SET-AUTH-DATA";
 let initialState ={
     data:{},
-    isFetching:false,
+    isAuth:false,
 }
 let  authReducer =(state = initialState,action)=>{
     switch (action.type) {
@@ -10,14 +12,32 @@ let  authReducer =(state = initialState,action)=>{
             debugger;
             return { ...state, data: {...action.data}};
         }
-        case "TOGGLE-IS-FETCHING":{
+        case "TOGGLE-IS-AUTH":{
             debugger;
-            return {...state, isFetching: action.isFetchingValue};
+            return {...state, isAuth: true};
         }
         default:
             return state;
     }
 }
+
+export const getAuthUserData= ()=>{
+    //надо обязательно оборачивать два раза даже если в первом вызове ничего не передаём, видимо для кол-бэка
+    return(dispatch)=>
+    {
+        // dispatch(toggleIsFetching(true));
+        headerAPI.getHeader()
+            .then(data => {
+                dispatch(setAuthData(data));
+                if(data.resultCode ===0){
+                    debugger;
+                    dispatch(toggleIsAuth());
+                }
+
+            })
+        debugger;
+    }
+}
 export default authReducer;
-export const toggleIsFetching =(isFetchingValue)=>({type:"TOGGLE-IS-FETCHING",isFetchingValue:isFetchingValue })
+export const toggleIsAuth =()=>({type:"TOGGLE-IS-AUTH" })
 export const setAuthData =(data)=>({type:SET_AUTH_DATA, data:data})

@@ -15,7 +15,8 @@ let initialState ={
             {id: 5, message: "Yo"},
             {id: 6, message: "Hello from Yata with love"}
         ],
-        currentValue:""
+        currentValue:"",
+        // isAuth:
 
 }
 let  dialogsReducer =(state = initialState,action)=>{

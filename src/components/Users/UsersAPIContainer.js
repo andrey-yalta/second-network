@@ -1,17 +1,13 @@
 import React from "react";
 import s from "./Users.module.css"
-import userIcon from "./../../common/img/userIcon.png"
-import * as axios from "axios"
+
 import Users from "./Users";
 import PreloaderImg from "../../common/img/circles.svg";
-import {toggleIsFetching} from "../../redux/users-reducer";
+
 import {usersAPI} from "../../api/api";
 
 
 class UsersAPIContainer extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         debugger;
@@ -38,10 +34,9 @@ class UsersAPIContainer extends React.Component {
     }
 
     render() {
-        let pageCount = this.props.totalCount / this.props.pageSize
+
         let pages = [];
-        {/*захардкодил число страниц - потом надо будет сделать нормально*/
-        }
+        //*захардкодил число страниц - потом надо будет сделать нормально*
         for (let i = 1; i < 40; i++) {
             pages.push(i);
         }

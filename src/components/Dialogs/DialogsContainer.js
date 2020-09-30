@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./Dialogs.module.css"
+
 import UserItem from "./UsersItem/UsersItem";
 import Message from "./Messages/Messages";
 import {addMessageActionCreator, messageChangedActionCreator} from "../../redux/state";
@@ -16,6 +16,7 @@ let mapStateToProps =(state)=>{
         usersElements:usersElements,
         messageElements : messageElements,
         value: state.dialogsPage.currentValue,
+        isAuth: state.auth.isAuth,
     }
 };
 let mapDispatchToProps =(dispatch)=>{

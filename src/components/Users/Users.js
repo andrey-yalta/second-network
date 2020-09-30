@@ -2,8 +2,6 @@ import React from "react";
 import s from "./Users.module.css"
 import userIcon from "./../../common/img/userIcon.png"
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
-import {toggleIFollowingInProgress} from "../../redux/users-reducer";
 
 const Users =(props)=>{
         return (
@@ -31,34 +29,15 @@ const Users =(props)=>{
                     <br/>
                     <span>user id: {u.id}</span>
                     <br/>
-                    {u.follow ?
+                    {u.followed ?
                         <button disabled={props.followingInProgress.some(id=> id === u.id)} onClick={() => {
                                 debugger;
-                                props.toggleIFollowingInProgress(true, u.id);
-                                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                                    {withCredentials:true, headers:{"API-KEY":"5d16bb3c-e00e-4326-9938-6b442a102e86"}})
-                                    .then(response => {
-                                            debugger;
-                                            if(response.data.resultCode === 0){
-                                                    props.unFollow(u.id)
-                                            }
-                                            props.toggleIFollowingInProgress(false, u.id);
-
-                                    })
+                                props.unfollowUsersThunkCreator(u.id);
 
                     }}>unfollow</button> :
                         <button disabled={props.followingInProgress.some(id=> id === u.id)} onClick={() => {
                                 debugger;
-                                props.toggleIFollowingInProgress(true, u.id);
-                                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{},
-                                    {withCredentials:true, headers:{"API-KEY":"5d16bb3c-e00e-4326-9938-6b442a102e86"}})
-                                    .then(response => {
-                                            debugger;
-                                            if(response.data.resultCode === 0){
-                                                    props.follow(u.id)
-                                            }
-                                            props.toggleIFollowingInProgress(false, u.id);
-                                    })
+                                props.followUsersThunkCreator(u.id);
 
                     }}> follow</button>}}
                 </div>))}

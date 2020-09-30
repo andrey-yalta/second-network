@@ -1,5 +1,6 @@
-import React from "react";
+
 import {
+    getUserProfileThunkCreator,
     toggleIsFetching
 
 } from "../../redux/profile-reducer";
@@ -20,5 +21,5 @@ let mapStateToProps = (state) => {
 };
 
 let withUrlDataContainerComponent = withRouter(ProfileAPIContainer);
-const ProfileContainer = connect(mapStateToProps, {setProfile, toggleIsFetching})(withUrlDataContainerComponent);
+const ProfileContainer = connect(mapStateToProps, {setProfile, toggleIsFetching,getUserProfileThunkCreator})(withUrlDataContainerComponent);
 export default ProfileContainer;

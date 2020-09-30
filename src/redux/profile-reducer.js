@@ -1,3 +1,5 @@
+import {profileAPI} from "../api/api";
+
 const SET_PROFILE = "SET-PROFILE";
 let initialState ={
 
@@ -43,3 +45,13 @@ let  profileReducer =(state = initialState,action)=>{
 export default profileReducer;
 export const toggleIsFetching =(isFetchingValue)=>({type:"TOGGLE-IS-FETCHING",isFetchingValue:isFetchingValue })
 export const setProfile =(profile)=>({type:SET_PROFILE, profile:profile})
+export const getUserProfileThunkCreator =(userId)=>{
+    return(dispatch)=>{
+        dispatch(toggleIsFetching(true));
+        profileAPI.getProfile(userId)
+            .then(data => {
+                dispatch(setProfile(data));
+                dispatch(toggleIsFetching(false));
+            })
+    }
+}
