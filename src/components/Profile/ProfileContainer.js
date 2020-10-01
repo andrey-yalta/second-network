@@ -8,6 +8,8 @@ import {connect} from "react-redux";
 import ProfileAPIContainer from "./ProfileAPIContainer";
 import {setProfile} from "../../redux/profile-reducer";
 import {withRouter} from "react-router-dom";
+import {withRedirectComponent} from "../../hoc/withRedirect";
+import Dialogs from "../Dialogs/Dialogs";
 
 
 let mapStateToProps = (state) => {
@@ -16,10 +18,10 @@ let mapStateToProps = (state) => {
 
         profile: state.profilePage.profile,
         isFetching: state.profilePage.isFetching,
-
     };
 };
 
 let withUrlDataContainerComponent = withRouter(ProfileAPIContainer);
-const ProfileContainer = connect(mapStateToProps, {setProfile, toggleIsFetching,getUserProfileThunkCreator})(withUrlDataContainerComponent);
+let ProfileWithRedirect = withRedirectComponent(withUrlDataContainerComponent);
+const ProfileContainer = connect(mapStateToProps, {setProfile, toggleIsFetching,getUserProfileThunkCreator})(ProfileWithRedirect);
 export default ProfileContainer;

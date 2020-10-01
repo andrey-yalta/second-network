@@ -2,6 +2,7 @@ import React from "react";
 import Profile from "./Profile";
 
 
+
 class ProfileAPIContainer extends React.Component {
     componentDidMount() {
         debugger;
@@ -10,6 +11,7 @@ class ProfileAPIContainer extends React.Component {
         this.props.getUserProfileThunkCreator(userId);
     }
     render() {
+
         // debugger;
         return(<Profile profilePage ={this.props.profile} />)
     }
