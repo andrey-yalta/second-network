@@ -3,7 +3,7 @@ import s from "./Navbar.module.css"
 import {NavLink} from "react-router-dom";
 
 const Navbar =(props)=> {
-    debugger;
+    // debugger;
     return(
         <div className={s.sidebar} >
             {/*{props.login}*/}

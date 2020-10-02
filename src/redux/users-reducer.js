@@ -15,10 +15,10 @@ let initialState ={
 
 }
 let  userReducers =(state = initialState,action)=>{
-    debugger;
+    // debugger;
     switch (action.type) {
         case "FOLLOW":{
-            debugger;
+            // debugger;
             let newState = {...state};
             newState.users = state.users.map(u =>{
                 if(u.id === action.userId){u.followed = true;}
@@ -27,7 +27,7 @@ let  userReducers =(state = initialState,action)=>{
             return newState;}
 
         case "UNFOLLOW":{
-            debugger;
+            // debugger;
             let newState = {...state};
             newState.users = state.users.map(u =>{
                 if(u.id === action.userId){u.followed = false;}
@@ -35,25 +35,25 @@ let  userReducers =(state = initialState,action)=>{
             });
             return newState;}
         case "SET-USERS":{
-            debugger;
+            // debugger;
             return { ...state, users: [...action.state]};
         }
         case "CHANGE-CURRENT-PAGE":{
-            debugger;
+            // debugger;
             let newState = {...state, currentPage: action.currentPage};
 
             return newState;}
         case "SET-TOTAL-USER-COUNT":{
-            debugger;
+            // debugger;
             let newState = {...state, totalCount: action.totalCount};
 
             return newState;}
         case "TOGGLE-IS-FETCHING":{
-            debugger;
+            // debugger;
             let newState = {...state, isFetching: action.isFetchingValue};
             return newState;}
         case "TOGGLE-FOLLOWING-IN-PROGRESS": {
-            debugger;
+            // debugger;
             return {
                 ...state,
                 followingInProgress: action.isFetching ?
@@ -96,7 +96,7 @@ export const unfollowUsersThunkCreator =(userId)=>{
         dispatch(toggleIFollowingInProgress(true, userId))
         usersAPI.unfollowUsers(userId)
             .then(data => {
-                debugger;
+                // debugger;
                 if(data.resultCode === 0){
                     dispatch(unFollow(userId))
                 }
@@ -110,7 +110,7 @@ export const followUsersThunkCreator =(userId)=>{
         dispatch(toggleIFollowingInProgress(true, userId))
         usersAPI.followUsers(userId)
             .then(data => {
-                debugger;
+                // debugger;
                 if(data.resultCode === 0){
                     dispatch(follow(userId))
                 }

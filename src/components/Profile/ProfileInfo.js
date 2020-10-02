@@ -12,7 +12,7 @@ const ProfileInfo =(props)=>{
             <img className={`${s.profile} ${s.avatar}`} src={props.profilePage.photos ?  props.profilePage.photos.large:userIcon} alt=""/><br/>
             <ProfileStatus {...props}/>
             <span> <b>Name: </b> : {props.profilePage.fullName} </span> <br/>
-            <span> <b>status: </b> : {props.profilePage.aboutMe} </span> <br/>
+            <span> <b>About me: </b> : {props.profilePage.aboutMe} </span> <br/>
             <span> <b>job: </b> : {props.profilePage.lookingForAJobDescription} </span> <br/>
 
 

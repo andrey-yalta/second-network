@@ -1,5 +1,6 @@
 import {
-    editModeChanged,
+    changeProfileStatusThunkCreator,
+    editModeChanged, getUserProfileStatusThunkCreator,
     getUserProfileThunkCreator,
     toggleIsFetching
 } from "../../redux/profile-reducer";
@@ -15,11 +16,13 @@ let mapStateToProps = (state) => {
 
         profile: state.profilePage.profile,
         isFetching: state.profilePage.isFetching,
+        status:state.profilePage.status,
     };
 };
 
 // export default compose(connect(mapStateToProps, {setProfile, toggleIsFetching,getUserProfileThunkCreator}), withRouter,withRedirectComponent)(ProfileAPIContainer);
 export default compose(connect(mapStateToProps, {setProfile,
     toggleIsFetching,
-    getUserProfileThunkCreator}),
+    getUserProfileThunkCreator,
+        getUserProfileStatusThunkCreator,changeProfileStatusThunkCreator}),
     withRouter)(ProfileAPIContainer);

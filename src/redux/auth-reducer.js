@@ -9,11 +9,11 @@ let  authReducer =(state = initialState,action)=>{
     switch (action.type) {
 
         case "SET-AUTH-DATA":{
-            debugger;
+            // debugger;
             return { ...state, data: {...action.data}};
         }
         case "TOGGLE-IS-AUTH":{
-            debugger;
+            // debugger;
             return {...state, isAuth: true};
         }
         default:
@@ -30,12 +30,12 @@ export const getAuthUserData= ()=>{
             .then(data => {
                 dispatch(setAuthData(data));
                 if(data.resultCode ===0){
-                    debugger;
+                    // debugger;
                     dispatch(toggleIsAuth());
                 }
 
             })
-        debugger;
+        // debugger;
     }
 }
 export default authReducer;

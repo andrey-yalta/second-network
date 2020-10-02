@@ -22,7 +22,7 @@ import {connect} from "react-redux";
 // }
 // export default PostsContainer;
 let mapStateToProps =(state)=>{
-    debugger;
+    // debugger;
     let postsElements = state.profilePage.posts.map(p=> <Post key={p.id} message={p.text} id={p.id} like={p.like}/>);
     return{
         postsElements: postsElements,

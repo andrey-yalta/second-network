@@ -8,7 +8,7 @@ const Header =(props)=>{
         <div className={s.header}>
 
             <img src={icon} alt="network"/>
-            <NavLink to={"/profile/2"}><span>{props.login ? props.login: "no logined"}</span></NavLink>
+            <NavLink to={"/profile/10867"}><span>{props.login ? props.login: "no logined"}</span></NavLink>
         </div>
     )
 }

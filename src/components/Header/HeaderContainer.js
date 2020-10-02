@@ -17,13 +17,13 @@ let mapStateToProps = (state) => {
 class HeaderAPIContainer extends React.Component {
 
     componentDidMount() {
-        debugger;
+        // debugger;
         this.props.getAuthUserData();
-        debugger;
+        // debugger;
     }
 
     render() {
-        debugger;
+        // debugger;
         return(<Header  {...this.props.data.data}/>)
     }
 }

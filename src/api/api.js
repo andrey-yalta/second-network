@@ -40,6 +40,24 @@ export const profileAPI = {
                     return response.data
                 })
         )
+    },
+    getProfileStatus:(userId)=>{
+        return(
+            instance.get('profile/status/'+userId)
+                .then(response =>{
+                    // debugger;
+                    return response.data
+                })
+        )
+    },
+    changeProfileStatus:(status)=>{
+        return(
+            instance.put('profile/status',{status:status})
+                .then(response=>{
+                    return response.data
+                    }
+                )
+        )
     }
 }
 

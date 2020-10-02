@@ -6,7 +6,7 @@ import App from "./App";
 import {Provider} from "react-redux";
 
 let renderEntireTree =(state)=>{
-    debugger;
+    // debugger;
     ReactDOM.render(
         <React.StrictMode>
             <Provider store={store} >

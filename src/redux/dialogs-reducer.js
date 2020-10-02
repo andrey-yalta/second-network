@@ -20,17 +20,17 @@ let initialState ={
 
 }
 let  dialogsReducer =(state = initialState,action)=>{
-    debugger;
+    // debugger;
     switch (action.type) {
         case "ADD-MESSAGE":{
-            debugger;
+            // debugger;
             let newState = {...state};
             newState.messages = [...state.messages]
             newState.messages.push({id: 7, message: state.currentValue})
             newState.currentValue = "";
             return newState;}
         case "MESSAGE-CHANGED":{
-            debugger;
+            // debugger;
             let newState = {...state};
             newState.currentValue = action.value;
             return newState}
