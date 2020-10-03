@@ -8,6 +8,12 @@ class ProfileStatus extends React.Component{
         editMode:false,
          localStatus:this.props.status,
     }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+         if(prevState.localStatus !== this.state.localStatus){
+             this.props.changeStatus(this.state.localStatus);
+         }
+    }
+
     activatedMode =()=>{
          this.setState({editMode:true})
     }
@@ -16,7 +22,6 @@ class ProfileStatus extends React.Component{
     }
     changeStatus =(e)=>{
          this.setState({localStatus:e.target.value})
-         this.props.changeStatus(this.state.localStatus);
     }
     render() {
         if(!this.state.editMode)return <div><span  onClick={this.activatedMode}> <b>"status: "</b>{this.props.status}</span></div>
