@@ -19,16 +19,16 @@ let initialState ={
 let  profileReducer =(state = initialState,action)=>{
     switch (action.type) {
         case "ADD-POST":{
-
+            debugger;
             let newState ={...state,
             posts:[...state.posts]};
 
-            newState.posts.push({text: state.currentValue , id: 6, like: 2});
-            newState.currentValue ="";
+            newState.posts.push({text: action.value , id: 6, like: 2});
+            // newState.currentValue ="";
 
             return newState;}
         case "POST-CHANGED":{
-
+            debugger;
             let newState = {...state};
             newState.currentValue = action.value;
             return newState;}

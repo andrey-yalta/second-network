@@ -54,7 +54,7 @@ let store = {
 }
 export default store;
 
-export const addPostActionCreator =()=> ({type:ADD_POST})
+export const addPostActionCreator =(postValue)=> ({type:ADD_POST,value:postValue})
 
 export const postChangedActionCreator =(postValue)=>({type:POST_CHANGED, value:postValue})
 

@@ -4,23 +4,6 @@ import {addPostActionCreator, postChangedActionCreator} from "../../../redux/sta
 import Posts from "./Posts";
 import {connect} from "react-redux";
 
-// const PostsContainer =(props)=>{
-//
-//     let addPost = ()=>{
-//         props.dispatch(addPostActionCreator())
-//     }
-//     let postChanged =(postValue)=>{
-//         props.dispatch(postChangedActionCreator(postValue));
-//     }
-//     debugger;
-//     let postsElements = props.posts.map(p=> <Post key={p.id} message={p.text} id={p.id} like={p.like}/>);
-//
-//     return(
-//
-//         <Posts onPostChanged={postChanged} addPost={addPost} postsElements={postsElements} postCurrentValue={props.postCurrentValue}/>
-//     )
-// }
-// export default PostsContainer;
 let mapStateToProps =(state)=>{
     // debugger;
     let postsElements = state.profilePage.posts.map(p=> <Post key={p.id} message={p.text} id={p.id} like={p.like}/>);
@@ -31,8 +14,8 @@ let mapStateToProps =(state)=>{
 }
 let mapDispatchToProps =(dispatch) =>{
     return{
-        addPost: () =>{dispatch(addPostActionCreator())} ,
-        onPostChanged: (postValue) =>{dispatch(postChangedActionCreator(postValue))},
+        addPost: (postValue) =>{dispatch(addPostActionCreator(postValue))} ,
+        onPostChanged: (postValue) =>{dispatch(addPostActionCreator(postValue))},
     }
 }
 
