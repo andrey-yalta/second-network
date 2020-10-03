@@ -1,0 +1,10 @@
+.form{
+
+}
+.form button{
+    height: 20px;
+    width: 120px;
+}
+.form button:hover{
+    border: 3px solid darkblue;
+}
