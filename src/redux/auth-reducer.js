@@ -2,25 +2,27 @@ import {authAPI, headerAPI} from "../api/api";
 import {Redirect} from "react-router-dom";
 import React from "react";
 import {dataKey} from "redux-form/lib/util/eventConsts";
+import {stopSubmit} from "redux-form";
 
 const SET_AUTH_DATA = "SET-AUTH-DATA";
 let initialState ={
     data:{},
+    userId:null,
     isAuth:false,
 }
 let  authReducer =(state = initialState,action)=>{
     switch (action.type) {
 
         case "SET-AUTH-DATA":{
-            // debugger;
-            return { ...state, data: {...action.data}};
+
+            return { ...state, data: {...action.data}, userId: action.data.data.id};
         }
         case "TOGGLE-IS-AUTH":{
-            // debugger;
+
             return {...state, isAuth: true};
         }
         case "AUTH-IS-OFF":{
-            debugger;
+
             return {...state, isAuth: false, data:{}};
         }
         default:
@@ -37,11 +39,11 @@ export const loginThunkCreator =(email, password, rememberMe = true)=>{
 
                     if(data.resultCode ===0){
                         dispatch(getAuthUserData());
-
-
                     }
                     else {
-                        console.log("somthing error in login")
+                        let message = data.messages.length >0 ? data.messages[0] :"some error";
+
+                        dispatch(stopSubmit("login",{_error:message}));
                     }
                 }
             )
@@ -71,6 +73,7 @@ export const getAuthUserData= ()=>{
         // dispatch(toggleIsFetching(true));
         headerAPI.getHeader()
             .then(data => {
+
                 dispatch(setAuthData(data));
                 if(data.resultCode ===0){
 

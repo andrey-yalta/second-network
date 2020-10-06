@@ -14,7 +14,7 @@ const LoginForm =(props)=>{
                 <div><Field component={Input} name={"email"} type="email" placeholder={"Login"} validate={[required]}/></div>
                 <div><Field component={Input} name={"password"} type="password" placeholder={"Password"} validate={[required]}/></div>
                 <div><Field component={Input} name={"saved"} type={"checkbox" }/></div>
-
+                { props.error &&<div className={s.summaryError}> {props.error} </div>}
                 <div><button>Logged in</button></div>
             </form>
 

@@ -11,12 +11,14 @@ import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 
 let mapStateToProps = (state) => {
-    debugger;
+
     return {
 
         profile: state.profilePage.profile,
         isFetching: state.profilePage.isFetching,
         status:state.profilePage.status,
+        authorizedUserId: state.auth.userId,
+        isAuth:state.auth.isAuth,
     };
 };
 
