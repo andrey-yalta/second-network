@@ -20,8 +20,8 @@ let mapStateToProps =(state)=>{
 };
 let mapDispatchToProps =(dispatch)=>{
     return{
-        sendMessage:()=>{dispatch(addMessageActionCreator())},
-        onChange: (messageValue)=>{dispatch(messageChangedActionCreator(messageValue))}
+        sendMessage:(value)=>{dispatch(addMessageActionCreator(value))},
     }
 }
-export default compose(connect(mapStateToProps,mapDispatchToProps),withRedirectComponent)(Dialogs)
+// export default compose(connect(mapStateToProps,mapDispatchToProps),withRedirectComponent)(Dialogs)
+export default compose(connect(mapStateToProps,mapDispatchToProps))(Dialogs)

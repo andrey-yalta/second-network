@@ -56,8 +56,7 @@ export default store;
 
 export const addPostActionCreator =(postValue)=> ({type:ADD_POST,value:postValue})
 
-export const postChangedActionCreator =(postValue)=>({type:POST_CHANGED, value:postValue})
 
-export const addMessageActionCreator =()=> ({type:ADD_MESSAGE})
+export const addMessageActionCreator =(value)=> ({type:ADD_MESSAGE, value:value})
 
 export const messageChangedActionCreator =(messageValue)=>({type:MESSAGE_CHANGED, value:messageValue})
