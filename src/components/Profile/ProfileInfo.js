@@ -4,7 +4,6 @@ import profileBackground from "../../profile.jpeg";
 import userIcon from "../../common/img/userIcon.png";
 import ProfileStatus from "./ProfileStatus/ProfileStatus";
 const ProfileInfo =(props)=>{
-    debugger;
     return(
         <div className={s.profile}>
             {/*<img src={profileBackground} alt="prfile"/>*/}

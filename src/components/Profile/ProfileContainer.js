@@ -11,7 +11,7 @@ import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 
 let mapStateToProps = (state) => {
-
+    debugger;
     return {
 
         profile: state.profilePage.profile,
@@ -20,7 +20,7 @@ let mapStateToProps = (state) => {
     };
 };
 
-// export default compose(connect(mapStateToProps, {setProfile, toggleIsFetching,getUserProfileThunkCreator}), withRouter,withRedirectComponent)(ProfileAPIContainer);
+
 export default compose(connect(mapStateToProps, {setProfile,
     toggleIsFetching,
     getUserProfileThunkCreator,

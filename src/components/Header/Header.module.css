@@ -12,6 +12,14 @@
     margin-right: 30px;
     font-size: 18px;
 }
+.header button{
+    float: right;
+    margin-top:32px;
+    margin-right: 10px;
+}
+.header button:hover{
+    border: 1px solid darkblue;
+}
 .header a{
     color: black;
 }

@@ -10,24 +10,24 @@ import {usersAPI} from "../../api/api";
 class UsersAPIContainer extends React.Component {
 
     componentDidMount() {
-        debugger;
+
         // это уже санка
         this.props.setUsersThunkCreator(this.props.currentPage, this.props.pageSize);
-        debugger;
+
     }
 
     //в компоненте снизу можно обращатся к функциям через this напрямую, потому что в рендере Users мы раскукожили props
     onPageChange(p) {
         this.changeCurrentPage(p)
         this.toggleIsFetching(true);
-        debugger;
+
         usersAPI.getUsers(p, this.pageSize)
             .then(data => {
                 this.setUsers(data.items)
                 //тогл это короче начало и конец анимации
                 this.toggleIsFetching(false);
             })
-        debugger;
+
     }
 
     paginator() {
@@ -40,7 +40,7 @@ class UsersAPIContainer extends React.Component {
         for (let i = 1; i < 40; i++) {
             pages.push(i);
         }
-        debugger;
+
         if (this.props.isFetching) {
             console.log("fetching true")
             return (<div>Loading... <br/><img className={s.preloader} src={PreloaderImg} alt=""/></div>)

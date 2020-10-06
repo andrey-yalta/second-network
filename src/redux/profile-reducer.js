@@ -19,7 +19,7 @@ let initialState ={
 let  profileReducer =(state = initialState,action)=>{
     switch (action.type) {
         case "ADD-POST":{
-            debugger;
+
             let newState ={...state,
             posts:[...state.posts]};
 
@@ -28,7 +28,7 @@ let  profileReducer =(state = initialState,action)=>{
 
             return newState;}
         case "POST-CHANGED":{
-            debugger;
+
             let newState = {...state};
             newState.currentValue = action.value;
             return newState;}

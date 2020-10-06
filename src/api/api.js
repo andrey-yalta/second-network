@@ -63,11 +63,36 @@ export const profileAPI = {
 
 export const headerAPI ={
     getHeader:()=>{
+
         return(
+
             instance.get(`/auth/me`)
                 .then(response => {
+
                     return response.data
                 })
         )
+    }
+}
+
+export const authAPI ={
+    login:(email, password, rememberMe = true)=>{
+
+        return(
+            instance.post('/auth/login', {email:email, password:password, rememberMe:rememberMe})
+            .then(response=>{
+
+                return response.data
+            }))
+
+    },
+    logout:()=>{
+        return(
+            instance.delete('/auth/login')
+            .then(response=>{
+                return response.data
+            })
+        )
+
     }
 }
