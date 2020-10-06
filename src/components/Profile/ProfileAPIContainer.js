@@ -7,6 +7,11 @@ class ProfileAPIContainer extends React.Component {
         let userId = this.props.match.params.userId;
         if(!userId) {
             userId =this.props.authorizedUserId;
+            if(!userId){
+                this.props.history.push("/login");
+                //здесь не совсем правильно, это мы вмешиваемся в жизненный цикл компоненты , лучше елать через рендер
+                // но рендер только в jsx, а это метод программный
+            }
         }
         this.props.getUserProfileThunkCreator(userId);
         this.props.getUserProfileStatusThunkCreator(userId);

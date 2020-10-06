@@ -19,7 +19,7 @@ class HeaderAPIContainer extends React.Component {
 
     componentDidMount() {
         // debugger;
-        this.props.getAuthUserData();
+        // this.props.getAuthUserData();
         // debugger;
     }
 

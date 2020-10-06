@@ -71,7 +71,7 @@ export const getAuthUserData= ()=>{
     {
 
         // dispatch(toggleIsFetching(true));
-        headerAPI.getHeader()
+        return headerAPI.getHeader()
             .then(data => {
 
                 dispatch(setAuthData(data));
