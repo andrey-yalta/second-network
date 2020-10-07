@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import s from "../Profile.module.css"
 
 
@@ -18,7 +18,8 @@ const ProfileStatus= (props)=>{
     const onStatusChange =(e)=>{
         setStatus(e.target.value);
     }
-
+    // это типа component will mount
+    useEffect(()=>{setStatus(props.status)},[props.status]);
     return(
         <div>
             {!editMode && <span onDoubleClick={activatedEditMode}> <b>status: </b>{props.status}</span>}
