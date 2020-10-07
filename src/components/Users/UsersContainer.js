@@ -13,18 +13,26 @@ import {
 } from "../../redux/users-reducer";
 import {connect} from "react-redux";
 import UsersAPIContainer from "./UsersAPIContainer";
+import {
+    getCurrentPage,
+    getFollowingInProgress,
+    getIsFetching,
+    getPageSize,
+    getTotalCount,
+    getUserPage
+} from "../../redux/user-selectors";
 
 
 let mapStateToProps = (state) => {
 
     return {
 
-        usersPage: state.usersPage,
-        totalCount:state.usersPage.totalCount,
-        pageSize:state.usersPage.pageSize,
-        currentPage:state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress,
+        usersPage: getUserPage(state),
+        totalCount: getTotalCount(state),
+        pageSize: getPageSize(state),
+        currentPage:getCurrentPage(state),
+        isFetching: getIsFetching(state),
+        followingInProgress: getFollowingInProgress(state),
 
     };
 };
