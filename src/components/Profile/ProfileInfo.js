@@ -2,7 +2,7 @@ import React from "react";
 import s from "./Profile.module.css"
 import profileBackground from "../../profile.jpeg";
 import userIcon from "../../common/img/userIcon.png";
-import ProfileStatus from "./ProfileStatus/ProfileStatus";
+import ProfileStatus from "./ProfileStatus/ProfileStatusHook";
 const ProfileInfo =(props)=>{
     return(
         <div className={s.profile}>
