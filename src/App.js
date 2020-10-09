@@ -26,8 +26,6 @@ class App extends Component{
         }
 
         return(
-
-            <BrowserRouter>    {/* короче это библиотека которая позволяет менять url адресс */}
                 <div className="main">
                     <HeaderContainer/>
                     <Navbar/>
@@ -42,8 +40,6 @@ class App extends Component{
 
                     </div>
                 </div>
-            </BrowserRouter>
-
         )
     }
 
