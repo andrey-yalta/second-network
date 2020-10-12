@@ -18,6 +18,7 @@ class UsersAPIContainer extends React.Component {
 
     //в компоненте снизу можно обращатся к функциям через this напрямую, потому что в рендере Users мы раскукожили props
     onPageChange(p) {
+        debugger;
         this.changeCurrentPage(p)
         this.toggleIsFetching(true);
 
@@ -30,8 +31,7 @@ class UsersAPIContainer extends React.Component {
 
     }
 
-    paginator() {
-    }
+
 
     render() {
 

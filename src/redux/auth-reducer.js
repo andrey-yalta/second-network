@@ -30,13 +30,10 @@ let  authReducer =(state = initialState,action)=>{
     }
 }
 
-export const loginThunkCreator =(email, password, rememberMe = true)=>{
-    return(dispatch)=>{
+export const loginThunkCreator =(email, password, rememberMe = true)=>
+    async(dispatch)=>{
 
-        authAPI.login(email,password,rememberMe)
-            .then(
-                data=>{
-
+         let data = await authAPI.login(email,password,rememberMe)
                     if(data.resultCode ===0){
                         dispatch(getAuthUserData());
                     }
@@ -45,44 +42,25 @@ export const loginThunkCreator =(email, password, rememberMe = true)=>{
 
                         dispatch(stopSubmit("login",{_error:message}));
                     }
-                }
-            )
     }
-}
-export const logoutThunkCreator =()=>{
-    return(dispatch)=>{
-        authAPI.logout()
-            .then(
-                data=>{
+export const logoutThunkCreator =()=>
+    async(dispatch)=>{
+        let data = await authAPI.logout()
                     if(data.resultCode ===0){
-
                         dispatch(authIsOff());
-
-
                     }
-                }
-            )
     }
-}
 
-export const getAuthUserData= ()=>{
+export const getAuthUserData= ()=>
     //надо обязательно оборачивать два раза даже если в первом вызове ничего не передаём, видимо для кол-бэка
-    return(dispatch)=>
+    async(dispatch)=>
     {
-
         // dispatch(toggleIsFetching(true));
-        return headerAPI.getHeader()
-            .then(data => {
-
+        let data = await  headerAPI.getHeader()
                 dispatch(setAuthData(data));
                 if(data.resultCode ===0){
-
                     dispatch(toggleIsAuth());
                 }
-
-            })
-        // debugger;
-    }
 }
 
 

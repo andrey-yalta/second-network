@@ -53,26 +53,17 @@ export const toggleIsFetching =(isFetchingValue)=>({type:"TOGGLE-IS-FETCHING",is
 export const setProfile =(profile)=>({type:SET_PROFILE, profile:profile});
 export const setStatus =(statusValue)=>({type:SET_PROFILE_STATUS, statusValue:statusValue});
 
-export const getUserProfileThunkCreator =(userId)=>{
-    return(dispatch)=>{
-        // dispatch(toggleIsFetching(true));
-        profileAPI.getProfile(userId)
-            .then(data => {
+export const getUserProfileThunkCreator =(userId)=>
+    async(dispatch)=>{
+        let data = await profileAPI.getProfile(userId)
                 dispatch(setProfile(data));
-                // dispatch(toggleIsFetching(false));
-            })
-    }
 }
-export const getUserProfileStatusThunkCreator =(userId)=>{
-    return(dispatch)=>{
-
-        profileAPI.getProfileStatus(userId)
-        .then(data=>{
+export const getUserProfileStatusThunkCreator =(userId)=>
+    async(dispatch)=>{
+       let data = await profileAPI.getProfileStatus(userId)
             dispatch(setStatus(data));
-
-        })
     }
-}
+
 export const changeProfileStatusThunkCreator =(status)=>{
     return(dispatch)=>{
         profileAPI.changeProfileStatus(status)
