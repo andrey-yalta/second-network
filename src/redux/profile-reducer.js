@@ -15,6 +15,7 @@ let initialState ={
         profile: {},
         isFetching:false,
         status:"",
+
 }
 let  profileReducer =(state = initialState,action)=>{
     switch (action.type) {
@@ -44,6 +45,9 @@ let  profileReducer =(state = initialState,action)=>{
 
             return {...state, isFetching: action.isFetchingValue};
         }
+        case "SAVE-PHOTO-SUCCESS":{
+            return {...state, profile: {...state.profile, photos:action.photos}}
+        }
         default:
             return state;
     }
@@ -52,7 +56,7 @@ export default profileReducer;
 export const toggleIsFetching =(isFetchingValue)=>({type:"TOGGLE-IS-FETCHING",isFetchingValue:isFetchingValue })
 export const setProfile =(profile)=>({type:SET_PROFILE, profile:profile});
 export const setStatus =(statusValue)=>({type:SET_PROFILE_STATUS, statusValue:statusValue});
-
+export const savePhotoSuccess =(photos)=>({type:"SAVE-PHOTO-SUCCESS", photos:photos})
 export const getUserProfileThunkCreator =(userId)=>
     async(dispatch)=>{
         let data = await profileAPI.getProfile(userId)
@@ -70,6 +74,17 @@ export const changeProfileStatusThunkCreator =(status)=>{
             .then(data=>{
                 if(data.resultCode ===0){
                     dispatch(setStatus(status))
+                }
+            })
+    }
+}
+
+export const savePhotoThunkCreator =(filePhoto)=>{
+    return(dispatch)=>{
+        profileAPI.savePhoto(filePhoto)
+            .then(data=>{
+                if(data.resultCode ===0){
+                    dispatch(savePhotoSuccess(data.data.photos))
                 }
             })
     }

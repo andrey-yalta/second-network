@@ -1,7 +1,7 @@
 import {
     changeProfileStatusThunkCreator,
     editModeChanged, getUserProfileStatusThunkCreator,
-    getUserProfileThunkCreator,
+    getUserProfileThunkCreator, savePhotoThunkCreator,
     toggleIsFetching
 } from "../../redux/profile-reducer";
 import {connect} from "react-redux";
@@ -19,6 +19,7 @@ let mapStateToProps = (state) => {
         status:state.profilePage.status,
         authorizedUserId: state.auth.userId,
         isAuth:state.auth.isAuth,
+
     };
 };
 
@@ -26,5 +27,5 @@ let mapStateToProps = (state) => {
 export default compose(connect(mapStateToProps, {setProfile,
     toggleIsFetching,
     getUserProfileThunkCreator,
-        getUserProfileStatusThunkCreator,changeProfileStatusThunkCreator}),
+        getUserProfileStatusThunkCreator,changeProfileStatusThunkCreator, savePhotoThunkCreator}),
     withRouter)(ProfileAPIContainer);

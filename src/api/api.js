@@ -50,6 +50,17 @@ export const profileAPI = {
                 })
         )
     },
+    savePhoto:(photoFile)=>{
+        const formData = new FormData();
+        formData.append("image", photoFile);
+        return(
+            instance.put('/profile/photo',formData, {headers:{'content-type':"multipart/form-data"}})
+                .then(response =>{
+                    // debugger;
+                    return response.data
+                })
+        )
+    },
     changeProfileStatus:(status)=>{
         return(
             instance.put('profile/status',{status:status})

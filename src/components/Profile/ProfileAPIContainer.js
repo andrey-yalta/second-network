@@ -19,7 +19,7 @@ class ProfileAPIContainer extends React.Component {
     }
     render() {
 
-        return(<Profile profilePage ={this.props.profile}  status={this.props.status} changeStatus={this.props.changeProfileStatusThunkCreator} />)
+        return(<Profile  savePhoto={this.props.savePhotoThunkCreator} isOwner={this.props.profile.userId ===this.props.authorizedUserId} profilePage ={this.props.profile}  status={this.props.status} changeStatus={this.props.changeProfileStatusThunkCreator} />)
     }
 }
 export default ProfileAPIContainer;
