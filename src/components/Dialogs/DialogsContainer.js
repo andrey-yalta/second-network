@@ -10,7 +10,7 @@ import {compose} from "redux";
 let mapStateToProps =(state)=>{
     let usersElements = state.dialogsPage.users.map(u => <UserItem key={u.id} id={u.id} name={u.name}/>);
        let messageElements = state.dialogsPage.messages.map(m=> <Message key={m.id} message={m.message} id={m.id}/>);
-    debugger;
+
     return{
         dialogsPage: state.dialogsPage,
         usersElements:usersElements,

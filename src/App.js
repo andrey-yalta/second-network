@@ -1,19 +1,16 @@
-import React, {Component} from 'react';
+import React, {Component, Suspense} from 'react';
 import './App.css';
-
 import Navbar from "./components/Navbar/Navbar";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {Route} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
-import ProfileContainer from "./components/Profile/ProfileContainer";
-
+// import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
-import {compose} from "redux";
 import {connect} from "react-redux";
-import {getAuthUserData} from "./redux/auth-reducer";
 import {initializeApp} from "./redux/app-reducer";
-
+import {WithSuspenceComponent} from "./hoc/withSuspence";
+const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
 
 class App extends Component{
     componentDidMount() {
@@ -30,10 +27,11 @@ class App extends Component{
                     <HeaderContainer/>
                     <Navbar/>
                     <div className="content" >
-                        {/*<Route path={"/profile"} component ={Profile}/>    /!* меняет url на profile и отрисовывает компоненту профайл *!/*/}
-                        {/*<Route path={"/dialogs"} component={Dialogs}/>*/}
+                        <Route path={"/profile/:userId?"} render={
+                            WithSuspenceComponent(ProfileContainer)
+                        }/>
 
-                        <Route path={"/profile/:userId?"} render={ ()=> <ProfileContainer /> }/> {/* мы используем рендер чтобы вызывать компоненту как тег чтобы можно было прокинуть пропсы*/}
+
                         <Route path={"/dialogs"} render={ ()=> <DialogsContainer  /> }/>
                         <Route path={"/users"} render={ ()=> <UsersContainer  /> }/>
                         <Route path={"/login"} render={ ()=> <Login  /> }/>
